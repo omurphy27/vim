@@ -113,9 +113,6 @@ nmap <Leader>ev :tabedit $MYVIMRC<cr>
 "Create new snippet via UltiSnips
 nmap <Leader>us :UltiSnipsEdit<cr>
 
-"Shortcut for editing snippets files
-nmap <Leader>es :e ~/.vim/snippets/<cr>
-
 "Add simple highlight removal.
 nmap <Leader><space> :nohlsearch<cr>
 
@@ -160,6 +157,12 @@ tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
 
 "Automatically unfold all folds when opening certain files
 autocmd Syntax js,scss,css,vim,xml,html,xhtml,php normal zR
+
+"Always start in insert mode when entering a terminal pane
+autocmd BufWinEnter,WinEnter term://* startinsert
+
+"Always be in normal mode when exiting a terminal pane
+autocmd BufLeave term://* stopinsert
 
 "Automatically source the Vimrc file on save.
 augroup SOURCE_ON_SAVE
