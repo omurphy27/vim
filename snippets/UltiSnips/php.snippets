@@ -1,0 +1,73 @@
+snippet met
+public function $1()
+{
+	$2
+}
+endsnippet
+
+snippet cmet
+public function __construct(${1})
+{
+	${2}
+}
+endsnippet
+
+snippet smet
+public static function ${1}()
+{
+	${2}
+}
+endsnippet
+
+snippet tmet
+/** @test **/
+public function ${1}()
+{
+	${2}
+}
+endsnippet
+
+snippet pmet
+protected function ${1}()
+{
+	${2}
+}
+endsnippet
+	
+snippet rg
+Route::get('${1}', '${2}');
+endsnippet
+
+snippet rp
+Route::post('${1}', '${2}');
+endsnippet
+
+snippet php
+<?php ${1} ?>
+endsnippet
+
+snippet css
+echo get_stylesheet_directory_uri();
+endsnippet
+
+snippet dd
+var_dump(${1}); die;
+endsnippet
+
+snippet field
+the_field('${1}');
+endsnippet
+
+snippet sfield
+the_sub_field('${1}');
+endsnippet
+
+snippet repeater
+<?php if( have_rows('${1}') ): ?>
+
+	<?php while( have_rows('${2}') ): the_row(); ?>
+
+	<?php endwhile; ?>
+
+<?php endif; ?>
+endsnippet
