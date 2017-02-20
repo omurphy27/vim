@@ -47,7 +47,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 " Directory to save snippets in
-let g:UltiSnipsSnippetsDir="~/.vim/snippets/UltiSnips"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 "~ PHP Documentor Options ~
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
