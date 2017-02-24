@@ -155,6 +155,7 @@ nmap <Leader>t :terminal<cr>
 "To create a new tab
 nnoremap <C-t> :tabnew<cr>
 inoremap <C-t> <Esc>:tabnew<cr>
+tnoremap <C-t> <C-\><C-n>:tabnew<cr>
 
 "Shortcut for escaping from terminal mode
 tnoremap <Esc> <C-\><C-n>
