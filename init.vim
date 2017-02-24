@@ -19,6 +19,14 @@ set termguicolors 	"make terminal vim and neovim prettier
 
 "--------- Plugin Config Options--------"
 
+" Snippets variables
+let g:snips_author='Ollie Murphy'
+let g:author='Ollie Murphy'
+let g:snips_email='omurphy27@gmail.com'
+let g:email='omurphy27@gmail.com'
+let g:snips_github='https://github.com/omurphy27'
+let g:github='https://github.com/omurphy27'
+
 "~ CtrlP Plugin Options ~
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30' 	"change order and amount of displayed results from Ctrl P
 let g:ctrlp_max_depth = 50 						"the directory depth at which to search
@@ -51,7 +59,7 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 "~ PHP Documentor Options ~
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-nnoremap <Leader>ds :call pdv#DocumentWithSnip()<CR>
+nnoremap <buffer> <Leader>ds :call pdv#DocumentWithSnip()<CR>
 
 "---------Visuals--------"
 colorscheme atom-dark 
@@ -82,9 +90,6 @@ nmap <C-L> <C-W><C-L>
 
 "Shortcut for opening a file in new tab.
 ca te tabedit
-
-"Shortcut for opening a new tab.
-ca tn tabnew
 
 "---------Mappings--------"
 
@@ -146,6 +151,10 @@ nmap <Leader>w :q<cr>
 
 "Enter terminal mode...aka open up the terminal from NeoVim
 nmap <Leader>t :terminal<cr>
+
+"To create a new tab
+nnoremap <C-t> :tabnew<cr>
+inoremap <C-t> <Esc>:tabnew<cr>
 
 "Shortcut for escaping from terminal mode
 tnoremap <Esc> <C-\><C-n>
