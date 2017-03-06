@@ -10,7 +10,7 @@ set number  	     	"Activate line numbers
 set linespace=10     	"Change line spacing
 set clipboard=unnamed   "Allow vim copy paste to work with OS X Clipboard
 set backspace=indent,eol,start
-set sw=4		"Set shiftwidth to 4 spaces, important when indenting using < or >
+set sw=2		"Set shiftwidth to 4 spaces, important when indenting using < or >
 set shortmess+=A	"Stop annoying swap file replacements messages. See here: http://stackoverflow.com/questions/1098159/vim-stop-existing-swap-file-warnings
 set ic 			"make case insensitive search the default
 set noerrorbells visualbell t_vb= "turn off thos annoying error bells
@@ -32,8 +32,9 @@ let NERDTreeShowHidden=1 						"show hidden files, like dotfiles in NERDtree
 "~ Vim Emmet Options ~
 let g:user_emmet_expandabbr_key = '<Tab>,' 				"in vim emmet, change the expandable key to Tab
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_server_python_interpreter = '/usr/bin/python' 	    	"set YCM to use the Python 2 that it was compiled with
+let g:python2_host_prog = '/usr/local/bin/python' 	  	 	"set to use python with vim and vim plugins
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'

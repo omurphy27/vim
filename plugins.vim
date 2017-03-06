@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-surround'
+Plugin 'flazz/vim-colorschemes'
 Bundle 'ervandew/supertab'
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
@@ -23,6 +24,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tobyS/vmustache'
 Plugin 'tobyS/pdv'
+Plugin 'jelera/vim-javascript-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
