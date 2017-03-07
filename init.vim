@@ -73,6 +73,7 @@ set splitright
 "Change key mappings to switch between splits"
 "In this order Up / Down / Right / L
 "Just like H J K L in VIM
+"Can be buggy in iTerm with Neovim - solution here fixes that: https://github.com/neovim/neovim/issues/2048
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-H> <C-W><C-H>
@@ -153,6 +154,10 @@ tnoremap <Esc> <C-\><C-n>
 
 "Switching panes inside terminal mode
 tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
+tnoremap <C-J> <C-\><C-n><C-W><C-J>
+tnoremap <C-K> <C-\><C-n><C-W><C-K>
+tnoremap <C-H> <C-\><C-n><C-W><C-H>
+tnoremap <C-L> <C-\><C-n><C-W><C-L>
 
 "--------Auto-Commands-----"
 
