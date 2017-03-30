@@ -1,5 +1,5 @@
 # My NeoVim Vimrc, Plugins and Snippets
-My Vimrc is mostly inspired and based on Jeffrey Way's tutorial [at Laracasts](https://laracasts.com/series/vim-mastery)
+My .vimrc is mostly inspired and based on Jeffrey Way's tutorial [at Laracasts](https://laracasts.com/series/vim-mastery)
 
 It has been augmented to work well with iTerm2 and NeoVim.
 
