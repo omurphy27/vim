@@ -3,4 +3,4 @@ My .vimrc is mostly inspired and based on Jeffrey Way's tutorial [at Laracasts](
 
 It has been augmented to work well with iTerm2 and NeoVim on Mac OS X.
 
-I've also added a handle of simple snippets, largely for HTML, CSS, JS and PHP. 
+I've also added a handful of simple snippets, largely for HTML, CSS, JS and PHP. 
