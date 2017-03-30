@@ -96,6 +96,15 @@ ino jj <esc>
 cno jj <c-c>
 vno v <esc>
 
+"Copies the current filepath to my clipboard
+nmap <Leader>fp :let @+ = expand("%")<cr>
+
+"Select all shortcut
+map <C-a> <esc>ggVG<cr>
+
+"Create new, empty, tab
+map <C-t> :tabnew<cr>
+
 "Shortcut for toggling Nerd Tree which opens up a sidebar of the current
 "directory and files
 nmap <Leader>1 :NERDTreeToggle<cr>
@@ -125,8 +134,8 @@ nmap <Leader>gt gT<cr>
 "copying and pasting
 nmap <Leader>dd "_d<cr>
 
-"Shortcut for clearing the CTRL + P cache and refreshing it
-nmap <Leader>cp :CtrlPClearCache<cr>
+"Shortcut for clearing the NERDTREE and CTRL + P caches and refreshing them 
+nmap <Leader>cp :NERDTreeFocus<cr>R<c-w><c-p>:CtrlPClearCache<cr>
 
 "Toggle between functions and variables in a file
 nmap <Leader>r :CtrlPBufTag<cr>
@@ -157,7 +166,8 @@ tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
 tnoremap <C-J> <C-\><C-n><C-W><C-J>
 tnoremap <C-K> <C-\><C-n><C-W><C-K>
 tnoremap <C-H> <C-\><C-n><C-W><C-H>
-tnoremap <C-L> <C-\><C-n><C-W><C-L>
+"Cant use <C-L> since thats what I use to clear my terminal
+tnoremap <C-;> <C-\><C-n><C-W><C-L> 		
 
 "--------Auto-Commands-----"
 
