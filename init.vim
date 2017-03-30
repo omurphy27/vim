@@ -54,6 +54,14 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <Leader>ds :call pdv#DocumentWithSnip()<CR>
 
+"~ Changing cursor shape and style depending on vim mode
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
 "---------Visuals--------"
 colorscheme atom-dark 
 set guifont=Fira_Code:h14
