@@ -70,6 +70,10 @@ set guifont=Fira_Code:h14
 hi LineNr       guifg=#393939
 hi LineNr       guibg=#1d1f21
 
+" Make the cursor light gold in terminal mode, consult below for color options
+" http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
+highlight TermCursor ctermfg=221 guifg=#ffd75f
+
 "---------Search--------"
 set hlsearch
 set incsearch
@@ -101,6 +105,7 @@ ca tn tabnew
 "Maping the escape key to something different in various modes
 "See here: http://stackoverflow.com/questions/397229/reaching-up-to-hit-the-escape-key-sucks-especially-in-vim
 ino jj <esc>
+ino kk <esc>:w<cr>
 cno jj <c-c>
 vno v <esc>
 
