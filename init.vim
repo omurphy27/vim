@@ -10,7 +10,7 @@ set number  	     	"Activate line numbers
 set linespace=10     	"Change line spacing
 set clipboard=unnamed   "Allow vim copy paste to work with OS X Clipboard
 set backspace=indent,eol,start
-set sw=4		"Set shiftwidth to 4 spaces, important when indenting using < or >
+set sw=2		"Set shiftwidth to 4 spaces, important when indenting using < or >
 set shortmess+=A	"Stop annoying swap file replacements messages. See here: http://stackoverflow.com/questions/1098159/vim-stop-existing-swap-file-warnings
 set ic 			"make case insensitive search the default
 set noerrorbells visualbell t_vb= "turn off thos annoying error bells
@@ -40,8 +40,9 @@ let NERDTreeShowHidden=1 						"show hidden files, like dotfiles in NERDtree
 "~ Vim Emmet Options ~
 let g:user_emmet_expandabbr_key = '<Tab>,' 				"in vim emmet, change the expandable key to Tab
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_server_python_interpreter = '/usr/bin/python' 	    	"set YCM to use the Python 2 that it was compiled with
+let g:python2_host_prog = '/usr/local/bin/python' 	  	 	"set to use python with vim and vim plugins
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -61,6 +62,14 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <buffer> <Leader>ds :call pdv#DocumentWithSnip()<CR>
 
+"~ Changing cursor shape and style depending on vim mode
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
 "---------Visuals--------"
 colorscheme atom-dark 
 set guifont=Fira_Code:h14
@@ -68,6 +77,10 @@ set guifont=Fira_Code:h14
 " Customize line number colors to blend in better
 hi LineNr       guifg=#393939
 hi LineNr       guibg=#1d1f21
+
+" Make the cursor light gold in terminal mode, consult below for color options
+" http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
+highlight TermCursor ctermfg=221 guifg=#ffd75f
 
 "---------Search--------"
 set hlsearch
@@ -80,6 +93,7 @@ set splitright
 "Change key mappings to switch between splits"
 "In this order Up / Down / Right / L
 "Just like H J K L in VIM
+"Can be buggy in iTerm with Neovim - solution here fixes that: https://github.com/neovim/neovim/issues/2048
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-H> <C-W><C-H>
@@ -96,8 +110,18 @@ ca te tabedit
 "Maping the escape key to something different in various modes
 "See here: http://stackoverflow.com/questions/397229/reaching-up-to-hit-the-escape-key-sucks-especially-in-vim
 ino jj <esc>
+ino kk <esc>:w<cr>
 cno jj <c-c>
 vno v <esc>
+
+"Copies the current filepath to my clipboard
+nmap <Leader>fp :let @+ = expand("%")<cr>
+
+"Select all shortcut
+map <C-a> <esc>ggVG<cr>
+
+"Create new, empty, tab
+map <C-t> :tabnew<cr>
 
 "Shortcut for toggling Nerd Tree which opens up a sidebar of the current
 "directory and files
@@ -128,8 +152,8 @@ nmap <Leader>gt gT<cr>
 "copying and pasting
 nmap <Leader>dd "_d<cr>
 
-"Shortcut for clearing the CTRL + P cache and refreshing it
-nmap <Leader>cp :CtrlPClearCache<cr>
+"Shortcut for clearing the NERDTREE and CTRL + P caches and refreshing them 
+nmap <Leader>cp :NERDTreeFocus<cr>R<c-w><c-p>:CtrlPClearCache<cr>
 
 "Toggle between functions and variables in a file
 nmap <Leader>r :CtrlPBufTag<cr>
@@ -162,6 +186,11 @@ tnoremap <Esc> <C-\><C-n>
 
 "Switching panes inside terminal mode
 tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
+tnoremap <C-J> <C-\><C-n><C-W><C-J>
+tnoremap <C-K> <C-\><C-n><C-W><C-K>
+tnoremap <C-H> <C-\><C-n><C-W><C-H>
+"Cant use <C-L> since thats what I use to clear my terminal
+tnoremap <C-;> <C-\><C-n><C-W><C-L> 		
 
 "--------Auto-Commands-----"
 
