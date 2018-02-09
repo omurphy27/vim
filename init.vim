@@ -5,34 +5,34 @@ so ~/.vim/plugins.vim
 
 syntax on
 
-let mapleader = ','  	"The default leader key is \ changing to ,
-set number  	     	"Activate line numbers
-set linespace=10     	"Change line spacing
+let mapleader = ','   "The default leader key is \ changing to ,
+set number          "Activate line numbers
+set linespace=10      "Change line spacing
 set clipboard=unnamed   "Allow vim copy paste to work with OS X Clipboard
 set backspace=indent,eol,start
-set sw=2		"Set shiftwidth to 4 spaces, important when indenting using < or >
-set shortmess+=A	"Stop annoying swap file replacements messages. See here: http://stackoverflow.com/questions/1098159/vim-stop-existing-swap-file-warnings
-set ic 			"make case insensitive search the default
+set shortmess+=A  "Stop annoying swap file replacements messages. See here: http://stackoverflow.com/questions/1098159/vim-stop-existing-swap-file-warnings
+set ic      "make case insensitive search the default
 set noerrorbells visualbell t_vb= "turn off thos annoying error bells
-set foldmethod=indent	"have folds auto generated based on indentation
-set termguicolors 	"make terminal vim and neovim prettier
+set foldmethod=indent "have folds auto generated based on indentation
+set termguicolors   "make terminal vim and neovim prettier
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab "convert all tabs to 2 spaces
 
 "--------- Plugin Config Options--------"
 
 "~ CtrlP Plugin Options ~
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30' 	"change order and amount of displayed results from Ctrl P
-let g:ctrlp_max_depth = 50 						"the directory depth at which to search
-let g:ctrlp_max_files = 0 						"place no limit on amount of files to search
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git' 		"ignore custom files and directories
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'  "change order and amount of displayed results from Ctrl P
+let g:ctrlp_max_depth = 50            "the directory depth at which to search
+let g:ctrlp_max_files = 0             "place no limit on amount of files to search
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'     "ignore custom files and directories
 
 "~ NERDTree Options ~
 let NERDTreeHijackNetrw = 0
-let NERDTreeShowHidden=1 						"show hidden files, like dotfiles in NERDtree
+let NERDTreeShowHidden=1            "show hidden files, like dotfiles in NERDtree
 
 "~ Vim Emmet Options ~
-let g:user_emmet_expandabbr_key = '<Tab>,' 				"in vim emmet, change the expandable key to Tab
+let g:user_emmet_expandabbr_key = '<Tab>,'        "in vim emmet, change the expandable key to Tab
 
-let g:python2_host_prog = '/usr/local/bin/python' 	  	 	"set to use python with vim and vim plugins
+let g:python2_host_prog = '/usr/local/bin/python'         "set to use python with vim and vim plugins
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -43,6 +43,18 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"~ Syntastic Options for using ESLint ~
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+let g:syntastic_always_populate_loc_list = 1
+
+"~ Active mode, which runs after every save and can slow things down, is set by default.
+"~ Passive mode only runs manually and can be specified by file type below
+let g:syntastic_mode_map = {
+		\ "mode": "active",
+		\ "active_filetypes": [],
+		\ "passive_filetypes": ["jsx"] }
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -109,6 +121,10 @@ ino kk <esc>:w<cr>
 cno jj <c-c>
 vno v <esc>
 
+"Navigate around a file more quickly
+nmap gk 10k<cr>
+nmap gj 10j<cr>
+
 "Copies the current filepath to my clipboard
 nmap <Leader>fp :let @+ = expand("%")<cr>
 
@@ -147,6 +163,15 @@ nmap <Leader>gt gT<cr>
 "copying and pasting
 nmap <Leader>dd "_d<cr>
 
+"Paste with overwriting the buffer
+"And having to recopy what I want to paste again
+"Doesn't work how I want it to - keep trying
+nmap <Leader>op "0p<cr>
+
+"Shortcut for deleting without adding to the 'register' which messes up
+"copying and pasting
+nmap <Leader>dd "_d<cr>
+
 "Shortcut for clearing the NERDTREE and CTRL + P caches and refreshing them 
 nmap <Leader>cp :NERDTreeFocus<cr>R<c-w><c-p>:CtrlPClearCache<cr>
 
@@ -161,6 +186,15 @@ nmap <Leader>ss :w<cr>
 
 "Shorcut for creating horitzontal split
 nmap <Leader>sp :sp<cr>
+
+"Set nopaste - useful for when stuck in insert paste mode
+nmap <Leader>np :set nopaste<cr>
+
+"Shorcut for manually firing the syntastic ES Lint syntastic checker
+nmap <Leader>sc :SyntasticCheck<cr>
+
+"Toggle between Syntastic Passive (Off) and Active (On) mode
+nmap <Leader>st :SyntasticToggleMode<cr>
 
 "Shorcut for creating vertical split
 nmap <Leader>vp :vsp<cr>
@@ -180,7 +214,7 @@ tnoremap <C-J> <C-\><C-n><C-W><C-J>
 tnoremap <C-K> <C-\><C-n><C-W><C-K>
 tnoremap <C-H> <C-\><C-n><C-W><C-H>
 "Cant use <C-L> since thats what I use to clear my terminal
-tnoremap <C-;> <C-\><C-n><C-W><C-L> 		
+tnoremap <C-;> <C-\><C-n><C-W><C-L>     
 
 "--------Auto-Commands-----"
 
