@@ -27,6 +27,10 @@ Plugin 'mxw/vim-jsx'
 Plugin 'tobyS/vmustache'
 Plugin 'tobyS/pdv'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'johngrib/vim-game-code-break'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
