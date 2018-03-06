@@ -5,12 +5,13 @@ so ~/.vim/plugins.vim
 
 syntax on
 
-let mapleader = ','  	"The default leader key is \ changing to ,
+nnoremap <Space> <nop>
+let mapleader =" "      "The default leader key is \ changing to spacebar
 set number  	     	"Activate line numbers
 set linespace=10     	"Change line spacing
 set clipboard=unnamed   "Allow vim copy paste to work with OS X Clipboard
 set backspace=indent,eol,start
-set sw=2		"Set shiftwidth to 4 spaces, important when indenting using < or >
+set sw=2		"Set shiftwidth to 2 spaces, important when indenting using < or >
 set shortmess+=A	"Stop annoying swap file replacements messages. See here: http://stackoverflow.com/questions/1098159/vim-stop-existing-swap-file-warnings
 set ic 			"make case insensitive search the default
 set noerrorbells visualbell t_vb= "turn off thos annoying error bells
@@ -143,7 +144,7 @@ nmap <Leader>ev :tabedit $MYVIMRC<cr>
 nmap <Leader>us :UltiSnipsEdit<cr>
 
 "Add simple highlight removal.
-nmap <Leader><space> :nohlsearch<cr>
+nmap <Leader>, :nohlsearch<cr>
 
 "Switch to right tab...normally it's gT, this saves from having to capitilize anything
 nmap <Leader>gt gT<cr>
