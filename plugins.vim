@@ -31,6 +31,9 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'johngrib/vim-game-code-break'
+Plugin 'posva/vim-vue'
+Plugin 'othree/html5.vim'
+Plugin 'maksimr/vim-jsbeautify'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

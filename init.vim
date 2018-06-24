@@ -63,10 +63,14 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_mode_map = {
 		\ "mode": "active",
 		\ "active_filetypes": [],
-		\ "passive_filetypes": ["jsx"] }
+		\ "passive_filetypes": ["jsx","vue","html"] }
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" getting vue files to use my html syntax highlighting
+" https://github.com/posva/vim-vue/issues/34
+au BufRead,BufNewFile *.vue set ft=html
 
 " Directory to save snippets in
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
@@ -74,6 +78,25 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 "~ PHP Documentor Options ~
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <buffer> <Leader>ds :call pdv#DocumentWithSnip()<CR>
+
+"~ JS Beautify formatter https://github.com/maksimr/vim-jsbeautify ~
+map <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+"Run beautifier regardless of the file type
+"particularly useful for vue component files
+vnoremap <Leader>bh :'<,'>call RangeHtmlBeautify()<cr>
+vnoremap <Leader>bj :'<,'>call RangeJsBeautify()<cr>
+vnoremap <Leader>bc :'<,'>call RangeCSSBeautify()<cr>
 
 "~ Changing cursor shape and style depending on vim mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
