@@ -192,10 +192,8 @@ nmap <Leader>gt gT<cr>
 "copying and pasting
 nmap <Leader>dd "_d<cr>
 
-"Paste with overwriting the buffer
-"And having to recopy what I want to paste again
-"Doesn't work how I want it to - keep trying
-nmap <Leader>op "0p<cr>
+"Paste without overwriting the buffer
+xnoremap <leader>op "_dP
 
 "Shortcut for deleting without adding to the 'register' which messes up
 "copying and pasting
