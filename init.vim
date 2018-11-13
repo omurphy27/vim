@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 
 " load in vim vundle and all vim plugins from separate file
-so ~/.vim/plugins.vim
+so ~/.config/nvim/plugins.vim
 
 syntax on
 
@@ -41,7 +41,7 @@ let NERDTreeShowHidden=1            "show hidden files, like dotfiles in NERDtre
 "~ Vim Emmet Options ~
 let g:user_emmet_expandabbr_key = '<Tab>,'        "in vim emmet, change the expandable key to Tab
 
-let g:python2_host_prog = '/usr/local/bin/python'         "set to use python with vim and vim plugins
+let g:python2_host_prog = '/usr/bin/python'         "set to use python with vim and vim plugins
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -73,7 +73,7 @@ let g:UltiSnipsEditSplit="vertical"
 au BufRead,BufNewFile *.vue set ft=html
 
 " Directory to save snippets in
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
 
 "~ PHP Documentor Options ~
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
@@ -168,7 +168,7 @@ map <C-t> :tabnew<cr>
 nmap <Leader>1 :NERDTreeToggle<cr>
 
 "Shortcut for editing the vimrc plugin listings file.
-nmap <Leader>ep :tabedit ~/.vim/plugins.vim<cr>
+nmap <Leader>ep :tabedit ~/.config/nvim/plugins.vim<cr>
 
 "Shortcut for installing plugins that have been added to the plugins.vim file
 nmap <Leader>pi :PluginInstall<cr>
@@ -263,4 +263,10 @@ autocmd BufLeave term://* stopinsert
 augroup SOURCE_ON_SAVE
     autocmd!
     autocmd BufWritePost .vimrc source %
+augroup END 
+
+"Automatically source the init.vim file on save.
+augroup SOURCE_ON_SAVE
+    autocmd!
+    autocmd BufWritePost init.vim source %
 augroup END 
