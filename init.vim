@@ -97,6 +97,7 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 vnoremap <Leader>bh :'<,'>call RangeHtmlBeautify()<cr>
 vnoremap <Leader>bj :'<,'>call RangeJsBeautify()<cr>
 vnoremap <Leader>bc :'<,'>call RangeCSSBeautify()<cr>
+vnoremap <Leader>bs :'<,'>call JsonBeautify()<cr>
 
 "~ Changing cursor shape and style depending on vim mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -193,7 +194,7 @@ nmap <Leader>gt gT<cr>
 nmap <Leader>dd "_d<cr>
 
 "Paste without overwriting the buffer
-xnoremap <leader>op "_dP
+nmap <leader>op "_dP
 
 "Shortcut for deleting without adding to the 'register' which messes up
 "copying and pasting
