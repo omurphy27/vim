@@ -9,7 +9,8 @@ nnoremap <Space> <nop>
 let mapleader =" "      "The default leader key is \ changing to spacebar
 set number          "Activate line numbers
 set linespace=10      "Change line spacing
-set clipboard=unnamed   "Allow vim copy paste to work with OS X Clipboard
+set clipboard+=unnamedplus "Allow vim copy paste to work with Ubuntu system Clipboard
+
 set backspace=indent,eol,start
 set shortmess+=A  "Stop annoying swap file replacements messages. See here: http://stackoverflow.com/questions/1098159/vim-stop-existing-swap-file-warnings
 set ic      "make case insensitive search the default
@@ -42,7 +43,7 @@ let NERDTreeShowHidden=1            "show hidden files, like dotfiles in NERDtre
 let g:user_emmet_expandabbr_key = '<Tab>,'        "in vim emmet, change the expandable key to Tab
 
 let g:python2_host_prog = '/usr/bin/python'         "set to use python with vim and vim plugins
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -108,7 +109,10 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 "---------Visuals--------"
-colorscheme atom-dark 
+"colorscheme molokai
+" colorscheme archery
+ colorscheme afterglow
+" colorscheme materialbox
 set guifont=Fira_Code:h14
 
 " Customize line number colors to blend in better
